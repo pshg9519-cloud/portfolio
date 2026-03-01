@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'Noto Sans JP', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#10b981', // green-500
+                        secondary: '#34d399', // green-400
+                        darkBg: '#0f172a',
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-800 font-sans antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navbar -->
+    <header class="fixed w-full top-0 z-50 glass transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#"
+                class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600">Portfolio.</a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#about" class="text-gray-600 hover:text-green-600 font-medium transition-colors">経歴</a>
+                <a href="#projects" class="text-gray-600 hover:text-green-600 font-medium transition-colors">プロジェクト</a>
+                <a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition-colors">コンタクト</a>
+            </nav>
+            <button class="md:hidden text-gray-600 focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <!-- Background Animations -->
+        <div
+            class="absolute top-0 -left-4 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob">
+        </div>
+        <div
+            class="absolute top-0 -right-4 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000">
+        </div>
+        <div
+            class="absolute -bottom-8 left-20 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
+            <p class="text-green-600 font-semibold tracking-wide uppercase mb-3">Hello, world!</p>
+            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
+                アイデアを形にする<br>
+                <span
+                    class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500">エンジニア・デザイナー</span>
+            </h1>
+            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
+                モダンな技術を駆使して、使いやすく美しいWebアプリケーションやモバイルアプリを開発しています。ユーザー体験を第一に考えたモノづくりを心がけています。
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#projects"
+                    class="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full sm:w-auto">
+                    プロジェクトを見る
+                </a>
+                <a href="#contact"
+                    class="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-medium hover:border-gray-300 hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
+                    お問い合わせ
+                </a>
+            </div>
+
+            <div class="mt-16 flex justify-center space-x-6 text-gray-400">
+                <a href="#" class="hover:text-gray-900 transition-colors text-2xl"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-blue-500 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-blue-700 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="w-full md:w-1/2 flex justify-center">
+                    <div
+                        class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
+                        <img src="file:///C:/Users/pshg9/.gemini/antigravity/images/aedb815617a2336336332ecfbbbd4de8e0ebceccb2f6efba22b9e6e44b5847fa.jpg"
+                            alt="Profile" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2">
+                    <h2 class="text-sm font-bold text-green-600 uppercase tracking-wider mb-2">About Me</h2>
+                    <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">名前（John Doe）</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        フロントエンド開発を中心としたWebエンジニアです。大学を卒業後、都内のIT企業で〇年間働き、複数のSaaSプロダクトの開発をリードしてきました。<br><br>
+                        現在はフリーランスとして、様々なクライアントのWebサイトやアプリケーション開発に携わっています。美しいUI/UXと堅牢なアーキテクチャの両立を目指しています。
+                    </p>
+                    <div class="space-y-4">
+                        <h4 class="font-semibold text-gray-900">主なスキルセット:</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">React /
+                                Next.js</span>
+                            <span
+                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">TypeScript</span>
+                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Tailwind
+                                CSS</span>
+                            <span
+                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Node.js</span>
+                            <span
+                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Python</span>
+                            <span
+                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Figma</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2">Portfolio</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">プロジェクト一覧</h3>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">過去に手がけた主要なプロジェクトや個人的に開発したアプリの一部をご紹介します。</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div
+                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Project 1"
+                            class="project-image w-full h-full object-cover transition-transform duration-500">
+                        <div
+                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">タスク管理アプリ TaskFlow</h4>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">
+                            個人の生産性を高めるためのモダンなタスク管理ツール。ドラッグ＆ドロップでの状態変更や、ダークモードに対応しています。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Next.js</span>
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Supabase</span>
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Tailwind</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i
+                                    class="fab fa-github text-xl"></i></a>
+                            <a href="#" class="text-gray-500 hover:text-green-600 transition-colors"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div
+                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Project 2"
+                            class="project-image w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">ECサイトフロントエンド</h4>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">
+                            アパレルブランド向けのヘッドレスコマース構築プロジェクト。Shopify APIと連携し、高速なページ遷移を実現しました。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">React</span>
+                            <span
+                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">GraphQL</span>
+                            <span
+                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Shopify</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-green-600 transition-colors"><i
+                                    class="fas fa-external-link-alt text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div
+                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
+                    <div class="relative h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
+                            alt="Project 3"
+                            class="project-image w-full h-full object-cover transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <h4 class="text-xl font-bold text-gray-900 mb-2">データ分析ダッシュボード</h4>
+                        <p class="text-gray-600 text-sm mb-4 flex-grow">
+                            企業の営業データをリアルタイムに可視化する社内システム。様々なグラフライブラリを活用し、直感的なUIを設計しました。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Vue.js</span>
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Chart.js</span>
+                            <span
+                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Firebase</span>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i
+                                    class="fab fa-github text-xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Next steps/Contact -->
+    <section id="contact" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">一緒にお仕事しませんか？</h2>
+            <p class="text-xl text-gray-600 mb-10">
+                新しいプロジェクトのご相談や、技術的なご質問など、お気軽にお問い合わせください。
+            </p>
+            <a href="mailto:hello@example.com"
+                class="inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-full font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                <i class="far fa-envelope mr-2"></i> メッセージを送る
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-12 border-t border-gray-800">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <h3 class="text-2xl font-bold text-white mb-6">Portfolio.</h3>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
+                        class="fab fa-github"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
+                        class="fab fa-dribbble"></i></a>
+            </div>
+            <p class="text-sm">
+                &copy; 2026 Your Name. All rights reserved.<br>
+                <span class="text-xs mt-2 inline-block text-gray-500">Designed & Built with HTML & Tailwind CSS</span>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Simple sticky navbar shadow script addition -->
+    <script>
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+                header.classList.add('shadow-sm');
+                header.classList.replace('bg-transparent', 'glass');
+            } else {
+                header.classList.remove('shadow-sm');
+                header.classList.replace('glass', 'bg-transparent');
+            }
+        });
+    </script>
+</body>
+
+</html>
