@@ -55,6 +55,48 @@
         .project-card:hover .project-image {
             transform: scale(1.05);
         }
+
+        .yt-thumbnail-wrapper {
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 0.75rem;
+        }
+
+        .yt-thumbnail-wrapper img {
+            transition: transform 0.5s ease;
+        }
+
+        .yt-thumbnail-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
+        .yt-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 68px;
+            height: 48px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .yt-thumbnail-wrapper:hover .yt-play-btn {
+            background-color: #ff0000;
+        }
+
+        .yt-play-btn::before {
+            content: '';
+            border-style: solid;
+            border-width: 10px 0 10px 20px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 5px;
+        }
     </style>
 </head>
 
@@ -66,9 +108,8 @@
             <a href="#"
                 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-green-600 to-emerald-600">Portfolio.</a>
             <nav class="hidden md:flex space-x-8">
+                <a href="#works" class="text-gray-600 hover:text-green-600 font-medium transition-colors">ワークス</a>
                 <a href="#about" class="text-gray-600 hover:text-green-600 font-medium transition-colors">経歴</a>
-                <a href="#projects" class="text-gray-600 hover:text-green-600 font-medium transition-colors">プロジェクト</a>
-                <a href="#contact" class="text-gray-600 hover:text-green-600 font-medium transition-colors">コンタクト</a>
             </nav>
             <button class="md:hidden text-gray-600 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
@@ -76,205 +117,179 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        <!-- Background Animations -->
-        <div
-            class="absolute top-0 -left-4 w-72 h-72 bg-green-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob">
-        </div>
-        <div
-            class="absolute top-0 -right-4 w-72 h-72 bg-emerald-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-2000">
-        </div>
-        <div
-            class="absolute -bottom-8 left-20 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-2xl opacity-70 animate-blob animation-delay-4000">
-        </div>
 
-        <div class="relative z-10 max-w-4xl mx-auto px-6 text-center">
-            <p class="text-green-600 font-semibold tracking-wide uppercase mb-3">Hello, world!</p>
-            <h1 class="text-5xl md:text-7xl font-bold text-gray-900 mb-6 leading-tight">
-                アイデアを形にする<br>
-                <span
-                    class="bg-clip-text text-transparent bg-gradient-to-r from-green-600 via-emerald-500 to-teal-500">エンジニア・デザイナー</span>
-            </h1>
-            <p class="text-lg text-gray-600 mb-10 max-w-2xl mx-auto">
-                モダンな技術を駆使して、使いやすく美しいWebアプリケーションやモバイルアプリを開発しています。ユーザー体験を第一に考えたモノづくりを心がけています。
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <a href="#projects"
-                    class="px-8 py-4 bg-gray-900 text-white rounded-full font-medium hover:bg-gray-800 transition-all transform hover:-translate-y-1 shadow-lg hover:shadow-xl w-full sm:w-auto">
-                    プロジェクトを見る
-                </a>
-                <a href="#contact"
-                    class="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-medium hover:border-gray-300 hover:bg-gray-50 transition-all shadow-sm w-full sm:w-auto">
-                    お問い合わせ
-                </a>
+
+
+
+    <!-- Works Section -->
+    <section id="works" class="pt-32 pb-24 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-green-600 uppercase tracking-wider mb-2">Works</h2>
+                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">コンテンツ紹介</h3>
+                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">YouTubeでの発信や日々の活動（X/Twitter）をご紹介します。</p>
             </div>
 
-            <div class="mt-16 flex justify-center space-x-6 text-gray-400">
-                <a href="#" class="hover:text-gray-900 transition-colors text-2xl"><i class="fab fa-github"></i></a>
-                <a href="#" class="hover:text-blue-500 transition-colors text-2xl"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="hover:text-blue-700 transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@%E3%81%B2%E3%83%BC%E3%81%A7%E3%81%83" target="_blank"
-                    rel="noopener noreferrer" class="hover:text-red-600 transition-colors text-2xl"><i
-                        class="fab fa-youtube"></i></a>
+            <!-- YouTube Videos -->
+            <div class="mb-20">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <i class="fab fa-youtube text-red-600 text-3xl"></i>
+                    <h4 class="text-2xl font-bold text-gray-900">YouTube</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- YouTube Video 1 -->
+                    <div
+                        class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-4 transition-all duration-300 hover:shadow-xl">
+                        <div class="relative w-full rounded-xl yt-thumbnail-wrapper" style="padding-top: 56.25%;"
+                            data-videoid="6LVHyoeOez8">
+                            <img src="https://img.youtube.com/vi/6LVHyoeOez8/maxresdefault.jpg"
+                                alt="YouTube Thumbnail 1" class="absolute top-0 left-0 w-full h-full object-cover">
+                            <div class="yt-play-btn"></div>
+                        </div>
+                        <div class="mt-5 px-2">
+                            <h5 class="text-xl font-bold text-gray-900 mb-2">youtubeはこちら</h5>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Vlog</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Tech</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- YouTube Video 2 -->
+                    <div
+                        class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-4 transition-all duration-300 hover:shadow-xl">
+                        <div class="relative w-full rounded-xl yt-thumbnail-wrapper" style="padding-top: 56.25%;"
+                            data-videoid="bB_9oseX9Ao">
+                            <img src="https://img.youtube.com/vi/bB_9oseX9Ao/maxresdefault.jpg"
+                                alt="YouTube Thumbnail 2" class="absolute top-0 left-0 w-full h-full object-cover">
+                            <div class="yt-play-btn"></div>
+                        </div>
+                        <div class="mt-5 px-2">
+                            <h5 class="text-xl font-bold text-gray-900 mb-2">youtubeはこちら</h5>
+                            <div class="flex gap-2">
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Design</span>
+                                <span
+                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Tutorial</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- More Videos Button -->
+                <div class="mt-12 text-center">
+                    <a href="https://youtube.com/channel/UCa_4X3zJMCqLFj5NSO4kXDg?si=YW86ae6laV3gat9l" target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center px-8 py-3 text-red-600 border-2 border-red-600 rounded-full font-bold hover:bg-red-600 hover:text-white transition-colors">
+                        <i class="fab fa-youtube mr-2 text-xl"></i> その他の動画を見る
+                    </a>
+                </div>
             </div>
+
+            <!-- Nico Nico Douga -->
+            <div class="mb-20">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <!-- There is no specific FontAwesome icon for NicoNico in standard free sets, using tv icon as placeholder -->
+                    <i class="fas fa-tv text-gray-900 text-3xl"></i>
+                    <h4 class="text-2xl font-bold text-gray-900">ニコニコ動画</h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Nico Nico Video 1 -->
+                    <div
+                        class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-4 transition-all duration-300 hover:shadow-xl">
+                        <!-- Nico Nico Embed Scripts require their own tag -->
+                        <div class="relative w-full rounded-xl overflow-hidden">
+                            <script type="application/javascript"
+                                src="https://embed.nicovideo.jp/watch/sm45958847/script?w=100%25&h=100%25"></script>
+                        </div>
+                        <div class="mt-5 px-2 text-center">
+                            <h5 class="text-xl font-bold text-gray-900 mb-2">ニコニコ動画はこちら</h5>
+                        </div>
+                    </div>
+
+                    <!-- Nico Nico Video 2 -->
+                    <div
+                        class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-4 transition-all duration-300 hover:shadow-xl">
+                        <div class="relative w-full rounded-xl overflow-hidden">
+                            <script type="application/javascript"
+                                src="https://embed.nicovideo.jp/watch/sm45922760/script?w=100%25&h=100%25"></script>
+                        </div>
+                        <div class="mt-5 px-2 text-center">
+                            <h5 class="text-xl font-bold text-gray-900 mb-2">ニコニコ動画はこちら</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Nico Nico Videos Button -->
+                <div class="mt-12 text-center">
+                    <a href="https://www.nicovideo.jp/user/3624535" target="_blank" rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center px-8 py-3 text-gray-900 border-2 border-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-colors">
+                        <i class="fas fa-tv mr-2 text-xl"></i> ニコニコのマイページを見る
+                    </a>
+                </div>
+            </div>
+
+            <!-- Note -->
+            <div class="mb-20">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <i class="fas fa-pen-nib text-green-500 text-3xl"></i>
+                    <h4 class="text-2xl font-bold text-gray-900">note</h4>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl">
+                        <p class="text-gray-600 mb-6">
+                            ブログプラットフォーム「note」にて、ITに関する知見や日々の学び、エッセイなどを執筆しています。
+                        </p>
+                        <a href="https://note.com/fishkun" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center px-8 py-3 text-white bg-green-500 rounded-full font-bold hover:bg-green-600 transition-colors shadow-md hover:shadow-lg">
+                            <i class="fas fa-external-link-alt mr-2"></i> noteの記事を読む
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- X / Twitter Posts -->
+            <div>
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <i class="fab fa-x-twitter text-gray-900 text-3xl"></i>
+                    <h4 class="text-2xl font-bold text-gray-900">X (Twitter)</h4>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <!-- X Post 1 -->
+                    <div
+                        class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-6 flex justify-center items-center">
+                        <blockquote class="twitter-tweet" data-theme="light">
+                            <a href="https://twitter.com/shibaone1013/status/2004867549130096941"></a>
+                        </blockquote>
+                    </div>
+                </div>
+                <!-- X Widget Script embedded once -->
+                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
+
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-white">
+    <section id="about" class="py-24 bg-white">
         <div class="max-w-6xl mx-auto px-6">
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="w-full md:w-1/2 flex justify-center">
                     <div
                         class="relative w-64 h-64 md:w-80 md:h-80 rounded-2xl overflow-hidden shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-                        <img src="file:///C:/Users/pshg9/.gemini/antigravity/images/aedb815617a2336336332ecfbbbd4de8e0ebceccb2f6efba22b9e6e44b5847fa.jpg"
-                            alt="Profile" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <img src="images/profile.png" alt="Profile" class="w-full h-full object-contain">
                     </div>
                 </div>
                 <div class="w-full md:w-1/2">
                     <h2 class="text-sm font-bold text-green-600 uppercase tracking-wider mb-2">About Me</h2>
                     <h3 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">ひーでぃ</h3>
-                    <p class="text-gray-600 mb-6 leading-relaxed">
-                        フロントエンド開発を中心としたWebエンジニアです。大学を卒業後、都内のIT企業で〇年間働き、複数のSaaSプロダクトの開発をリードしてきました。<br><br>
-                        現在はフリーランスとして、様々なクライアントのWebサイトやアプリケーション開発に携わっています。美しいUI/UXと堅牢なアーキテクチャの両立を目指しています。
+                    <p class="text-gray-600 leading-relaxed">
+                        SynthesizerVによる歌ってみた動画、日常系の漫画などを作成しております。
                     </p>
-                    <div class="space-y-4">
-                        <h4 class="font-semibold text-gray-900">主なスキルセット:</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">React /
-                                Next.js</span>
-                            <span
-                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">TypeScript</span>
-                            <span class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Tailwind
-                                CSS</span>
-                            <span
-                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Node.js</span>
-                            <span
-                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Python</span>
-                            <span
-                                class="px-4 py-2 bg-green-50 text-green-700 rounded-lg text-sm font-medium">Figma</span>
-                        </div>
-                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-sm font-bold text-blue-600 uppercase tracking-wider mb-2">Portfolio</h2>
-                <h3 class="text-3xl md:text-4xl font-bold text-gray-900">プロジェクト一覧</h3>
-                <p class="text-gray-600 mt-4 max-w-2xl mx-auto">過去に手がけた主要なプロジェクトや個人的に開発したアプリの一部をご紹介します。</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project 1 -->
-                <div
-                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Project 1"
-                            class="project-image w-full h-full object-cover transition-transform duration-500">
-                        <div
-                            class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-300">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">タスク管理アプリ TaskFlow</h4>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            個人の生産性を高めるためのモダンなタスク管理ツール。ドラッグ＆ドロップでの状態変更や、ダークモードに対応しています。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Next.js</span>
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Supabase</span>
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Tailwind</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i
-                                    class="fab fa-github text-xl"></i></a>
-                            <a href="#" class="text-gray-500 hover:text-green-600 transition-colors"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div
-                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Project 2"
-                            class="project-image w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">ECサイトフロントエンド</h4>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            アパレルブランド向けのヘッドレスコマース構築プロジェクト。Shopify APIと連携し、高速なページ遷移を実現しました。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span
-                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">React</span>
-                            <span
-                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">GraphQL</span>
-                            <span
-                                class="text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-1 rounded">Shopify</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-gray-500 hover:text-green-600 transition-colors"><i
-                                    class="fas fa-external-link-alt text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div
-                    class="project-card bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 flex flex-col group">
-                    <div class="relative h-48 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80"
-                            alt="Project 3"
-                            class="project-image w-full h-full object-cover transition-transform duration-500">
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col">
-                        <h4 class="text-xl font-bold text-gray-900 mb-2">データ分析ダッシュボード</h4>
-                        <p class="text-gray-600 text-sm mb-4 flex-grow">
-                            企業の営業データをリアルタイムに可視化する社内システム。様々なグラフライブラリを活用し、直感的なUIを設計しました。
-                        </p>
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Vue.js</span>
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Chart.js</span>
-                            <span
-                                class="text-xs font-semibold text-green-600 bg-green-50 px-2 py-1 rounded">Firebase</span>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors"><i
-                                    class="fab fa-github text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Next steps/Contact -->
-    <section id="contact" class="py-24 bg-white relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
-            <h2 class="text-3xl md:text-5xl font-bold text-gray-900 mb-6">一緒にお仕事しませんか？</h2>
-            <p class="text-xl text-gray-600 mb-10">
-                新しいプロジェクトのご相談や、技術的なご質問など、お気軽にお問い合わせください。
-            </p>
-            <a href="mailto:hello@example.com"
-                class="inline-flex items-center justify-center px-8 py-4 text-white bg-gradient-to-r from-green-600 to-emerald-600 rounded-full font-bold text-lg hover:shadow-lg transform hover:-translate-y-1 transition-all">
-                <i class="far fa-envelope mr-2"></i> メッセージを送る
-            </a>
         </div>
     </section>
 
@@ -289,7 +304,10 @@
                         class="fab fa-twitter"></i></a>
                 <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
                         class="fab fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@%E3%81%B2%E3%83%BC%E3%81%A7%E3%81%83" target="_blank"
+                <a href="https://note.com/fishkun" target="_blank" rel="noopener noreferrer"
+                    class="text-gray-400 hover:text-green-500 transition-colors text-xl"><i
+                        class="fas fa-pen-nib"></i></a>
+                <a href="https://youtube.com/channel/UCa_4X3zJMCqLFj5NSO4kXDg?si=YW86ae6laV3gat9l" target="_blank"
                     rel="noopener noreferrer" class="text-gray-400 hover:text-red-500 transition-colors text-xl"><i
                         class="fab fa-youtube"></i></a>
                 <a href="#" class="text-gray-400 hover:text-white transition-colors text-xl"><i
@@ -313,6 +331,23 @@
                 header.classList.remove('shadow-sm');
                 header.classList.replace('glass', 'bg-transparent');
             }
+        });
+
+        // YouTube Thumbnail Click to Load
+        document.querySelectorAll('.yt-thumbnail-wrapper').forEach(wrapper => {
+            wrapper.addEventListener('click', function () {
+                const videoId = this.getAttribute('data-videoid');
+                const iframe = document.createElement('iframe');
+                iframe.setAttribute('src', `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+                iframe.setAttribute('title', 'YouTube video player');
+                iframe.setAttribute('frameborder', '0');
+                iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+                iframe.setAttribute('allowfullscreen', 'true');
+                iframe.classList.add('absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'rounded-xl');
+
+                this.innerHTML = '';
+                this.appendChild(iframe);
+            });
         });
     </script>
 </body>
