@@ -111,9 +111,26 @@
                 <a href="#works" class="text-gray-600 hover:text-green-600 font-medium transition-colors">ワークス</a>
                 <a href="#about" class="text-gray-600 hover:text-green-600 font-medium transition-colors">経歴</a>
             </nav>
-            <button class="md:hidden text-gray-600 focus:outline-none">
+            <button id="mobile-menu-btn" class="md:hidden text-gray-600 focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white/95 backdrop-blur-md border-t border-gray-100 absolute w-full left-0 shadow-lg">
+            <nav class="flex flex-col px-6 py-4 space-y-4">
+                <a href="#youtube"
+                    class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">YouTube</a>
+                <a href="#niconico"
+                    class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">ニコニコ動画</a>
+                <a href="#note"
+                    class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">note</a>
+                <a href="#x" class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">X
+                    (Twitter)</a>
+                <a href="#about"
+                    class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">経歴</a>
+            </nav>
         </div>
     </header>
 
@@ -131,7 +148,7 @@
             </div>
 
             <!-- YouTube Videos -->
-            <div class="mb-20">
+            <div id="youtube" class="mb-20 scroll-mt-24">
                 <div class="flex items-center justify-center space-x-3 mb-8">
                     <i class="fab fa-youtube text-red-600 text-3xl"></i>
                     <h4 class="text-2xl font-bold text-gray-900">YouTube</h4>
@@ -148,12 +165,6 @@
                         </div>
                         <div class="mt-5 px-2">
                             <h5 class="text-xl font-bold text-gray-900 mb-2">youtubeはこちら</h5>
-                            <div class="flex gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Vlog</span>
-                                <span
-                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Tech</span>
-                            </div>
                         </div>
                     </div>
 
@@ -168,12 +179,6 @@
                         </div>
                         <div class="mt-5 px-2">
                             <h5 class="text-xl font-bold text-gray-900 mb-2">youtubeはこちら</h5>
-                            <div class="flex gap-2">
-                                <span
-                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Design</span>
-                                <span
-                                    class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-medium">#Tutorial</span>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -188,7 +193,7 @@
             </div>
 
             <!-- Nico Nico Douga -->
-            <div class="mb-20">
+            <div id="niconico" class="mb-20 scroll-mt-24">
                 <div class="flex items-center justify-center space-x-3 mb-8">
                     <!-- There is no specific FontAwesome icon for NicoNico in standard free sets, using tv icon as placeholder -->
                     <i class="fas fa-tv text-gray-900 text-3xl"></i>
@@ -231,7 +236,7 @@
             </div>
 
             <!-- Note -->
-            <div class="mb-20">
+            <div id="note" class="mb-20 scroll-mt-24">
                 <div class="flex items-center justify-center space-x-3 mb-8">
                     <i class="fas fa-pen-nib text-green-500 text-3xl"></i>
                     <h4 class="text-2xl font-bold text-gray-900">note</h4>
@@ -251,7 +256,7 @@
             </div>
 
             <!-- X / Twitter Posts -->
-            <div>
+            <div id="x" class="scroll-mt-24">
                 <div class="flex items-center justify-center space-x-3 mb-8">
                     <i class="fab fa-x-twitter text-gray-900 text-3xl"></i>
                     <h4 class="text-2xl font-bold text-gray-900">X (Twitter)</h4>
@@ -347,6 +352,21 @@
 
                 this.innerHTML = '';
                 this.appendChild(iframe);
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
         });
     </script>
