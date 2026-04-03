@@ -306,19 +306,19 @@
                         <!-- Stickers Examples Grid -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-lg mx-auto mb-8 z-10">
                             <!-- Example 1 -->
-                            <div onclick="openModal('images/stamp1.png?t=2')" class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square cursor-pointer">
+                            <div onclick="previewSticker(this)" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square cursor-pointer relative z-10">
                                 <img src="images/stamp1.png?t=2" alt="LINEスタンプ例1" class="w-full h-full object-contain drop-shadow-sm pointer-events-none" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+1'">
                             </div>
                             <!-- Example 2 -->
-                            <div onclick="openModal('images/stamp2.png?t=3')" class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-75 cursor-pointer">
+                            <div onclick="previewSticker(this)" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-75 cursor-pointer relative z-10">
                                 <img src="images/stamp2.png?t=3" alt="LINEスタンプ例2" class="w-full h-full object-contain drop-shadow-sm pointer-events-none" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+2'">
                             </div>
                             <!-- Example 3 -->
-                            <div onclick="openModal('images/stamp3.png?t=1')" class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-150 cursor-pointer">
+                            <div onclick="previewSticker(this)" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-150 cursor-pointer relative z-10">
                                 <img src="images/stamp3.png?t=1" alt="LINEスタンプ例3" class="w-full h-full object-contain drop-shadow-sm pointer-events-none" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+3'">
                             </div>
                             <!-- Example 4 -->
-                            <div onclick="openModal('images/stamp4.png?t=1')" class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-200 cursor-pointer">
+                            <div onclick="previewSticker(this)" class="bg-white rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-200 cursor-pointer relative z-10">
                                 <img src="images/stamp4.png?t=1" alt="LINEスタンプ例4" class="w-full h-full object-contain drop-shadow-sm pointer-events-none" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+4'">
                             </div>
                         </div>
@@ -428,16 +428,6 @@
         </div>
     </footer>
 
-    <!-- Image Modal (Hidden by default) -->
-    <div id="image-modal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-gray-900/80 backdrop-blur-sm transition-opacity duration-300 opacity-0 cursor-pointer" onclick="closeModal()">
-        <div class="relative max-w-xs md:max-w-md w-full p-4 md:p-6 text-center transform scale-95 transition-transform duration-300 cursor-auto" id="modal-content" onclick="event.stopPropagation()">
-            <button onclick="closeModal()" class="absolute -top-1 -right-1 w-10 h-10 bg-white text-gray-900 rounded-full shadow-lg flex items-center justify-center hover:bg-gray-100 focus:outline-none z-10 transition-transform hover:scale-110">
-                <i class="fas fa-times text-xl"></i>
-            </button>
-            <img id="modal-image" src="" alt="Enlarged Stamp" class="w-full h-auto object-contain mx-auto shadow-2xl rounded-2xl bg-white p-6 md:p-8">
-        </div>
-    </div>
-
     <!-- Scripts -->
     <script>
         const header = document.querySelector('header');
@@ -483,33 +473,20 @@
             });
         });
 
-        // Image Modal Logic for LINE Stickers
-        const modal = document.getElementById('image-modal');
-        const modalImg = document.getElementById('modal-image');
-        const modalContent = document.getElementById('modal-content');
-
-        function openModal(imgSrc) {
-            modalImg.src = imgSrc;
-            modal.classList.remove('hidden');
-            modal.style.display = 'flex';
-            // Slight delay allows display:flex to apply before animating opacity
+        // In-place Sticker Preview Animation (LINE Store style)
+        function previewSticker(element) {
+            // Do not run if already animating
+            if (element.classList.contains('scale-[1.6]') || element.classList.contains('scale-150')) return;
+            
+            // Add classes to make it pop out visually above the others
+            element.classList.add('scale-150', 'z-50', 'shadow-2xl');
+            element.classList.remove('hover:-translate-y-1', 'z-10', 'hover:shadow-md');
+            
+            // Automatically return to normal state after 1.5 seconds
             setTimeout(() => {
-                modal.classList.remove('opacity-0');
-                modalContent.classList.remove('scale-95');
-                modalContent.classList.add('scale-100');
-            }, 10);
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeModal() {
-            modal.classList.add('opacity-0');
-            modalContent.classList.remove('scale-100');
-            modalContent.classList.add('scale-95');
-            setTimeout(() => {
-                modal.classList.add('hidden');
-                modal.style.display = '';
-                document.body.style.overflow = ''; // Restore scrolling
-            }, 300);
+                element.classList.remove('scale-150', 'z-50', 'shadow-2xl');
+                element.classList.add('hover:-translate-y-1', 'z-10', 'hover:shadow-md');
+            }, 1200);
         }
     </script>
 </body>
