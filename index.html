@@ -482,11 +482,11 @@
             element.classList.add('scale-150', 'z-50', 'shadow-2xl');
             element.classList.remove('hover:-translate-y-1', 'z-10', 'hover:shadow-md');
             
-            // Automatically return to normal state after 1.5 seconds
+            // Automatically return to normal state after a longer duration (3.2 seconds)
             setTimeout(() => {
                 element.classList.remove('scale-150', 'z-50', 'shadow-2xl');
                 element.classList.add('hover:-translate-y-1', 'z-10', 'hover:shadow-md');
-            }, 1200);
+            }, 3200);
         }
     </script>
 </body>
