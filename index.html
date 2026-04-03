@@ -126,6 +126,8 @@
                     class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">ニコニコ動画</a>
                 <a href="#note"
                     class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">note</a>
+                <a href="#linestamp"
+                    class="text-gray-600 hover:text-[#06C755] font-medium transition-colors mobile-link">LINEスタンプ</a>
                 <a href="#x" class="text-gray-600 hover:text-green-600 font-medium transition-colors mobile-link">X
                     (Twitter)</a>
                 <a href="#about"
@@ -182,8 +184,16 @@
                         </div>
                     </div>
                 </div>
+                
+                <!-- And More text for YouTube -->
+                <div class="mt-4 flex justify-end w-full">
+                    <span class="text-gray-600 font-bold italic tracking-wider text-lg flex items-center hover:text-red-600 transition-colors">
+                        ...and more!
+                    </span>
+                </div>
+
                 <!-- More Videos Button -->
-                <div class="mt-12 text-center">
+                <div class="mt-8 text-center">
                     <a href="https://youtube.com/channel/UCa_4X3zJMCqLFj5NSO4kXDg?si=YW86ae6laV3gat9l" target="_blank"
                         rel="noopener noreferrer"
                         class="inline-flex items-center justify-center px-8 py-3 text-red-600 border-2 border-red-600 rounded-full font-bold hover:bg-red-600 hover:text-white transition-colors">
@@ -208,7 +218,7 @@
                             <script type="application/javascript"
                                 src="https://embed.nicovideo.jp/watch/sm45958847/script?w=100%25&h=100%25"></script>
                         </div>
-                        <div class="mt-5 px-2 text-center">
+                        <div class="mt-5 px-2">
                             <h5 class="text-xl font-bold text-gray-900 mb-2">ニコニコ動画はこちら</h5>
                         </div>
                     </div>
@@ -220,14 +230,21 @@
                             <script type="application/javascript"
                                 src="https://embed.nicovideo.jp/watch/sm45922760/script?w=100%25&h=100%25"></script>
                         </div>
-                        <div class="mt-5 px-2 text-center">
+                        <div class="mt-5 px-2">
                             <h5 class="text-xl font-bold text-gray-900 mb-2">ニコニコ動画はこちら</h5>
                         </div>
                     </div>
                 </div>
 
+                <!-- And More text for Nico Nico -->
+                <div class="mt-4 flex justify-end w-full">
+                    <span class="text-gray-600 font-bold italic tracking-wider text-lg flex items-center hover:text-gray-900 transition-colors">
+                        ...and more!
+                    </span>
+                </div>
+
                 <!-- More Nico Nico Videos Button -->
-                <div class="mt-12 text-center">
+                <div class="mt-8 text-center">
                     <a href="https://www.nicovideo.jp/user/3624535" target="_blank" rel="noopener noreferrer"
                         class="inline-flex items-center justify-center px-8 py-3 text-gray-900 border-2 border-gray-900 rounded-full font-bold hover:bg-gray-900 hover:text-white transition-colors">
                         <i class="fas fa-tv mr-2 text-xl"></i> ニコニコのマイページを見る
@@ -255,6 +272,61 @@
                 </div>
             </div>
 
+            <!-- LINE Stamp -->
+            <div id="linestamp" class="mb-20 scroll-mt-24">
+                <div class="flex items-center justify-center space-x-3 mb-8">
+                    <i class="fab fa-line text-[#06C755] text-3xl"></i>
+                    <h4 class="text-2xl font-bold text-gray-900 whitespace-nowrap">LINEスタンプ</h4>
+                </div>
+                <div class="max-w-2xl mx-auto">
+                    <div class="bg-white rounded-2xl overflow-hidden shadow-lg border border-gray-100 p-8 flex flex-col items-center justify-center text-center transition-all duration-300 hover:shadow-xl relative">
+                        <!-- Decorative background -->
+                        <div class="absolute -right-10 -top-10 w-32 h-32 bg-[#06C755] rounded-full opacity-10 blur-xl"></div>
+                        <div class="absolute -left-10 -bottom-10 w-24 h-24 bg-[#06C755] rounded-full opacity-10 blur-xl"></div>
+                        
+                        <div class="w-20 h-20 bg-[#06C755]/10 rounded-full flex items-center justify-center mb-6 z-10">
+                            <i class="fas fa-store text-[#06C755] text-4xl"></i>
+                        </div>
+                        <h5 class="text-2xl font-bold text-gray-900 mb-4 z-10">オリジナル<span class="inline-block">LINEスタンプ</span>好評発売中！</h5>
+                        <p class="text-gray-600 mb-6 z-10 leading-relaxed">
+                            日常会話で使いやすく、ちょっとユニークなオリジナルキャラクターの<span class="inline-block">LINEスタンプ</span>を販売しています。<br>お友達やご家族とのトークにぜひ使ってみてください！
+                        </p>
+                        
+                        <!-- Stickers Examples Grid -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-lg mx-auto mb-8 z-10">
+                            <!-- Example 1 -->
+                            <div class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square">
+                                <img src="images/stamp1.png?t=2" alt="LINEスタンプ例1" class="w-full h-full object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+1'">
+                            </div>
+                            <!-- Example 2 -->
+                            <div class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-75">
+                                <img src="images/stamp2.png?t=3" alt="LINEスタンプ例2" class="w-full h-full object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+2'">
+                            </div>
+                            <!-- Example 3 -->
+                            <div class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-150">
+                                <img src="images/stamp3.png?t=1" alt="LINEスタンプ例3" class="w-full h-full object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+3'">
+                            </div>
+                            <!-- Example 4 -->
+                            <div class="bg-gray-50 rounded-2xl p-3 shadow-sm border border-gray-100 hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col items-center justify-center aspect-square delay-200">
+                                <img src="images/stamp4.png?t=1" alt="LINEスタンプ例4" class="w-full h-full object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/200x200/f8f9fa/a1a1aa?text=Stamp+4'">
+                            </div>
+                        </div>
+
+                        <!-- And More text -->
+                        <div class="z-10 -mt-2 mb-8 flex justify-end w-full max-w-lg mx-auto pr-2">
+                            <span class="text-gray-600 font-bold italic tracking-wider text-lg flex items-center hover:text-[#06C755] transition-colors">
+                                ...and more!
+                            </span>
+                        </div>
+
+                        <a href="https://line.me/S/shop/sticker/author/5829368" target="_blank" rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center px-10 py-4 text-white bg-[#06C755] rounded-full font-bold text-lg hover:bg-[#05b34c] transition-all shadow-[0_4px_14px_0_rgba(6,199,85,0.39)] hover:shadow-[0_6px_20px_rgba(6,199,85,0.23)] hover:-translate-y-1 z-10 whitespace-nowrap">
+                            <i class="fab fa-line mr-2 text-2xl"></i> LINE STOREを見る
+                        </a>
+                    </div>
+                </div>
+            </div>
+
             <!-- X / Twitter Posts -->
             <div id="x" class="scroll-mt-24">
                 <div class="flex items-center justify-center space-x-3 mb-8">
@@ -268,6 +340,13 @@
                         <blockquote class="twitter-tweet" data-theme="light">
                             <a href="https://twitter.com/shibaone1013/status/2004867549130096941"></a>
                         </blockquote>
+                    </div>
+                    
+                    <!-- And More text for X -->
+                    <div class="mt-4 flex justify-end w-full pr-2">
+                        <span class="text-gray-600 font-bold italic tracking-wider text-lg flex items-center hover:text-gray-900 transition-colors">
+                            ...and more!
+                        </span>
                     </div>
                 </div>
                 <!-- X Widget Script embedded once -->
